@@ -1,0 +1,17 @@
+{
+  "nombre":"Nestor",
+  "apellido":"Hernandez",
+  "colores":["rojo","azul","verde"],
+  "direccion":{
+      "ciudad":"tegucigalpa",
+      "calle": "Residencial Santa Cruz",
+      "bloque":2
+    },
+  "Areas de la Carrera":[
+      {"nombre carrera":"Base de Datos"},
+      {"nombre carrera":"Programacion y Diseño Web"},
+      {"nombre carrera":"Redes"}
+    ],
+  "Edad": 21,
+  "# de Cuenta": "0801-1995-15922"
+}

@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Trabajo en Clase Nestor Hernandez' });
 });
 router.get('/contactanos', function(req, res, next) {
   res.render('contactanos', { img: 'images/imagen.jpg' });
@@ -36,6 +36,37 @@ router.get('/api/usuarios', function(req,res,next){
   res.json(usuarios);
 });
 
+//Lo que hicimos en una prueba
+
+router.get('/api/informacion', function(req,res,next){
+  var usuarios = [
+                {"Nombre":"Nestor Josue Hernandez "},
+                {"Telefono":32936069},
+                {"email":"nhernandezosorto@gmail.com"},
+                {"Clases":["base de datos ",
+                            "Diseño       ",
+                            "Programacion Web"]}
+              ];
+  res.json(usuarios);
+});
+router.get('/principal', function(req,res,next){
+  res.render('prueba',{"txtMensaje":"","msg":""});
+});
+
+var usuarioRegistro= [];
+router.post('/principal',function(req,res,next){
+  console.log(req.body);
+    usuarioRegistro.push(req.body.txtMensaje);
+    // Para que conozcan map funcion de un arreglo
+    //var msgs = usersRegistered.map(function(item,i){return item}).join("|");
+    //var msgs = usersRegistered.join("|");
+    var msgs = usuarioRegistro;
+    var rtObject = {}; // {"txtEmail": req.body.txtEmail, "msg":msgs};
+    rtObject.txtMensaje = req.body.txtMensaje;
+    rtObject.msg= msgs;
+  res.render('prueba', rtObject);
+});
+///////ultima Clase
 // RESTful API --> HTTP(S) , POST(Insert), GET(Select), PUT(Update), DELETE(Delete)
   //        Se manipulan a partir de la URL, Sin estado.
 
@@ -77,5 +108,8 @@ router.get('/api/usuarios', function(req,res,next){
        res.status(200).json(Diccionario[req.params.dictionaryKey]);
     });
 
-
+//200 todo esta bien
+//300 hay algo en bufer
+//400 problema en el servidor
+//500 se frego todo
 module.exports = router;
